@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .grid-container {
+        width: 100px;
+        height: 100px;
+        border: 1px solid red;
+        display: grid;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .grid-item {
+        border: 1px solid black;
+        padding: 10px;
+      }
+
+      .bfc-box {
+        height: 200px;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-item"></div>
+    </div>
+
+    <div class="bfc-box">
+      <span>111</span>
+      <span>222</span>
+    </div>
+  </body>
+
+  <script>
+    const arr = []
+
+    console.log(Object.prototype.toString.call(arr)) // [object Array]
+    console.log(arr instanceof Array)
+    console.log(Array.isArray(arr))
+
+    for (const key in ['aaa', 'bbb']) {
+      console.log(key) // 0, 1
+    }
+  </script>
+</html>
