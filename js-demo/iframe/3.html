@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.html</title>
+  </head>
+  <body>
+    <div>页面3的内容</div>
+
+    <script>
+      function receiveMessage(event) {
+        console.log(`页面3收到消息：`, event)
+      }
+      window.addEventListener('message', receiveMessage)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.html</title>
+  </head>
+  <body>
+    <div>页面2的内容</div>
+
+    <script>
+      window.fun2 = function () {
+        console.log('page2 methods')
+      }
+      function receiveMessage(event) {
+        console.log(`页面2收到消息：`, event)
+      }
+      window.addEventListener('message', receiveMessage)
+
+      console.log(window.top)
+    </script>
+  </body>
+</html>

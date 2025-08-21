@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>主页面</title>
+  </head>
+  <body>
+    <div>页面1的内容</div>
+
+    <iframe id="iframe1" src="./2.html" frameborder="0"></iframe>
+    <iframe id="iframe2" src="./3.html" frameborder="0"></iframe>
+
+    <script>
+      window.fun1 = () => {
+        console.log('main page')
+      }
+      function receiveMessage(event) {
+        console.log(`页面1收到消息：`, event)
+      }
+      window.addEventListener('message', receiveMessage)
+
+      window.addEventListener('load', init)
+
+      function init() {
+        const iframe1 = document.querySelector('#iframe1')
+        const iframe2 = document.querySelector('#iframe2')
+
+        iframe1.contentWindow.postMessage('message')
+        postMessage('page1 message', 'http://127.0.0.1:5500/js-demo/iframe/2.html')
+      }
+    </script>
+
+    <script>
+      class IframeMessageBridge {}
+    </script>
+  </body>
+</html>
