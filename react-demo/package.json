@@ -12,10 +12,13 @@
   "dependencies": {
     "@ant-design/icons": "^6.0.0",
     "@reduxjs/toolkit": "^2.8.2",
+    "@types/lodash-es": "^4.17.12",
     "antd": "^5.26.7",
     "axios": "^1.11.0",
     "immer": "^10.1.1",
+    "lodash-es": "^4.17.21",
     "msw": "^2.10.4",
+    "nanoid": "^5.1.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^9.2.0",
