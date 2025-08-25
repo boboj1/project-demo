@@ -20,11 +20,21 @@ const BaseLayout: React.FC = () => {
 		},
 		{
 			key: 'components',
-			label: '组件库',
+			label: '组件',
 			children: [
 				{
 					key: '/todo-list',
 					label: '待办事项',
+				},
+			],
+		},
+		{
+			key: 'canvas',
+			label: 'canvas',
+			children: [
+				{
+					key: '/canvas-base',
+					label: '基础画布',
 				},
 			],
 		},

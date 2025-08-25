@@ -1,30 +1,40 @@
-import { useState, useRef, useEffect, forwardRef, useImperativeHandle } from 'react'
+import { useState, useCallback, useEffect, useRef, useContext } from 'react'
+import { debounce } from 'lodash-es'
+import { Button } from 'antd'
+import { useDebounceFn } from '@/hooks'
+import { ThemeContext } from '@/context'
 
 export default function Home() {
-	const [count, setCount] = useState(0)
-	const listRef = useRef(null)
+	const [status, setStatus] = useState(true)
+	const theme = useContext(ThemeContext)
+	console.log('theme', theme)
+	console.log('home render')
 
 	return (
 		<div>
-			<h1>Home</h1>
-
-			<List ref={listRef} />
+			<Button onClick={() => setStatus(s => !s)}>Toggle</Button>
+			{status && <List />}
 		</div>
 	)
 }
 
-const List = forwardRef((props, ref) => {
-	useImperativeHandle(ref, () => ({
-		scrollToTop: () => {
-			console.log('scrollToTop called')
-		},
-	}))
+function List() {
+	const [count, setCount] = useState(0)
+	const [num, setNum] = useState(0)
+
+	console.log('list render')
+
+	const handleClick = useDebounceFn(() => {
+		setCount(c => c + 1)
+		console.log('handleClick')
+	}, 1000)
 
 	return (
-		<ul>
-			<li>Item 1</li>
-			<li>Item 2</li>
-			<li>Item 3</li>
-		</ul>
+		<div>
+			<span>{count}</span>
+			<Button type="primary" onClick={handleClick}>
+				点击
+			</Button>
+		</div>
 	)
-})
+}
