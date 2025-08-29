@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.example-box-container {
+  .example-item {
+    margin-bottom: 32px;
+
+    // ppt幻灯片效果
+    .ppt-container {
+      width: 400px;
+      height: 350px;
+      border: 1px solid #000;
+      position: relative;
+
+      .ppt-text-title {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .ppt-sub-text {
+        position: absolute;
+        top: 100px;
+        left: 50px;
+        font-size: 18px;
+      }
+      .ppt-submit-btn {
+        position: absolute;
+        top: 150px;
+        left: 50px;
+      }
+      .ppt-box-list {
+        position: absolute;
+        top: 200px;
+        left: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        .ppt-box-item {
+          width: 50px;
+          height: 50px;
+          border: 1px solid #000;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          text-align: center;
+          line-height: 50px;
+        }
+      }
+    }
+
+    // 文字导航菜单
+    .text-menu-container {
+      display: flex;
+      margin-top: 10px;
+      .text-menu-item {
+        margin-right: 10px;
+        overflow: hidden;
+        cursor: pointer;
+        text-shadow: 0 22px 0 currentColor;
+
+        .char {
+          transition: all 0.3s ease-in-out;
+        }
+
+        &:hover {
+          color: #f00;
+          .char {
+            transform: translateY(-22px);
+          }
+        }
+      }
+    }
+  }
+}
