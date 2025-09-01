@@ -1,3 +1,5 @@
 import './style.scss'
 import './ppt'
 import './text-nav'
+import './flip'
+import './text3d'
