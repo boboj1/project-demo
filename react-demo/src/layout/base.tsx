@@ -1,8 +1,10 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
 import { Button, Layout, Menu, theme } from 'antd'
 import type { MenuProps } from 'antd'
 import { Outlet, useNavigate, useLocation } from 'react-router'
+import { useAppLoading } from '@/hooks'
+import Loading from '@/components/loading'
 
 type MenuItem = Required<MenuProps>['items'][number]
 
@@ -11,6 +13,7 @@ const { Header, Sider, Content } = Layout
 const BaseLayout: React.FC = () => {
 	const navigate = useNavigate()
 	const location = useLocation()
+	const [loading, setAppLoading] = useAppLoading()
 
 	const [collapsed, setCollapsed] = useState(false)
 	const [navList, setNavList] = useState<MenuItem[]>([
@@ -91,49 +94,58 @@ const BaseLayout: React.FC = () => {
 		return getDefaultOpenKeys()
 	}, [location.pathname, navList])
 
+	// useEffect(() => {
+	// 	setTimeout(() => {
+	// 		setAppLoading(!loading)
+	// 	}, 1000)
+	// }, [])
+
 	return (
-		<Layout
-			style={{
-				height: '100%',
-			}}
-		>
-			<Sider trigger={null} collapsible collapsed={collapsed}>
-				<div className="demo-logo-vertical" />
-				<Menu
-					theme="dark"
-					mode="inline"
-					defaultSelectedKeys={[location.pathname]}
-					defaultOpenKeys={defaultOpenKeys}
-					items={navList}
-					onClick={menuItemClick}
-				/>
-			</Sider>
-			<Layout>
-				<Header style={{ padding: 0, background: colorBgContainer }}>
-					<Button
-						type="text"
-						icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-						onClick={() => setCollapsed(!collapsed)}
-						style={{
-							fontSize: '16px',
-							width: 64,
-							height: 64,
-						}}
+		<>
+			{/* <Loading /> */}
+			<Layout
+				style={{
+					height: '100%',
+				}}
+			>
+				<Sider trigger={null} collapsible collapsed={collapsed}>
+					<div className="demo-logo-vertical" />
+					<Menu
+						theme="dark"
+						mode="inline"
+						defaultSelectedKeys={[location.pathname]}
+						defaultOpenKeys={defaultOpenKeys}
+						items={navList}
+						onClick={menuItemClick}
 					/>
-				</Header>
-				<Content
-					style={{
-						margin: '24px 16px',
-						padding: 24,
-						minHeight: 280,
-						background: colorBgContainer,
-						borderRadius: borderRadiusLG,
-					}}
-				>
-					<Outlet />
-				</Content>
+				</Sider>
+				<Layout>
+					<Header style={{ padding: 0, background: colorBgContainer }}>
+						<Button
+							type="text"
+							icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+							onClick={() => setCollapsed(!collapsed)}
+							style={{
+								fontSize: '16px',
+								width: 64,
+								height: 64,
+							}}
+						/>
+					</Header>
+					<Content
+						style={{
+							margin: '24px 16px',
+							padding: 24,
+							minHeight: 280,
+							background: colorBgContainer,
+							borderRadius: borderRadiusLG,
+						}}
+					>
+						<Outlet />
+					</Content>
+				</Layout>
 			</Layout>
-		</Layout>
+		</>
 	)
 }
 

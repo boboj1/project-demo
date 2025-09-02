@@ -1,0 +1,14 @@
+.scroll-container {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+
+	:global {
+		.scroll-item-wrapper {
+			.scroll-card {
+				width: 200px;
+				height: 150px;
+			}
+		}
+	}
+}

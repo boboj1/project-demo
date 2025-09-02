@@ -4,6 +4,10 @@ import { Provider } from 'react-redux'
 import { store } from '@/redux/store'
 import { worker } from '@/msw'
 import { ThemeContext } from '@/context'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
+
+gsap.registerPlugin(useGSAP)
 
 worker.start().finally(() => {
 	ReactDOM.createRoot(document.getElementById('root')!).render(
