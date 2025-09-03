@@ -29,6 +29,10 @@ const BaseLayout: React.FC = () => {
 					key: '/todo-list',
 					label: '待办事项',
 				},
+				{
+					key: '/upload',
+					label: '上传组件',
+				},
 			],
 		},
 		{

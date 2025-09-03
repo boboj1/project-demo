@@ -17,6 +17,10 @@ const router = createBrowserRouter([
 				Component: lazy(() => import('@/views/comp/todo-list')),
 			},
 			{
+				path: 'upload',
+				Component: lazy(() => import('@/views/comp/upload')),
+			},
+			{
 				path: 'canvas-base',
 				Component: lazy(() => import('@/views/canvas/base')),
 			},

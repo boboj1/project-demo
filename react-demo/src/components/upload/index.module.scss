@@ -1,0 +1,48 @@
+.upload {
+	display: inline-block;
+	:global {
+		.upload-container {
+			width: 300px;
+			height: 200px;
+			border: 1px dashed #ccc;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		.file-list {
+			margin-top: 16px;
+
+			.file-item {
+				width: 300px;
+				border-radius: 4px;
+				height: 32px;
+				padding: 0 8px;
+				border: 1px solid #eee;
+				display: flex;
+				align-items: center;
+				cursor: pointer;
+
+				.file-name {
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					transition: all 0.3s;
+
+					&:hover {
+						color: cadetblue;
+					}
+				}
+
+				.delete-icon {
+					margin-left: auto;
+					cursor: pointer;
+					transition: all 0.3s;
+
+					&:hover {
+						color: red;
+					}
+				}
+			}
+		}
+	}
+}
