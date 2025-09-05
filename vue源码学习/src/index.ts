@@ -1,19 +1,24 @@
-import { reactive } from './reactive'
+import { reactive, toRaw, readonly } from './reactive'
 
-const originObj = {
-  name: 'tao',
-  age: 18,
-  get fullName() {
-    console.log(this)
-    return this.name + this.age
-  },
-  address: { city: 'beijing' },
+const obj = {
+  a: 1,
+  b: 2
 }
+const arr = [1, obj, 3, , 4]
 
-const obj = reactive(originObj)
-const obj2 = reactive(originObj)
+const proxyArr = reactive(arr)
 
-// console.log(obj === obj2)
+proxyArr.push(5)
 
-// console.log(obj.fullName)
-console.log(obj.address)
+const readonlyArr = readonly({
+  a: 1,
+  b: 2,
+  c: {
+    a: 1,
+    b: 2
+  }
+})
+
+// console.log(readonlyArr)
+
+// readonlyArr.a = 2
