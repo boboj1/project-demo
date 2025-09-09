@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        width: 375px;
+        height: 50px;
+        background-color: #333;
+        margin-bottom: 15px;
+      }
+
+      .list div {
+        width: 93.75px;
+        height: 100px;
+        float: left;
+      }
+
+      .list div:nth-child(1) {
+        background: red;
+      }
+
+      .list div:nth-child(2) {
+        background: green;
+      }
+
+      .list div:nth-child(3) {
+        background: blue;
+      }
+
+      .list div:nth-child(4) {
+        background: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // ;(function () {
+      //   var meta = document.querySelector('meta[name="viewport"]')
+      //   // window.devicePixelRatio 获取 DPR 的值
+      //   // 以 iPhone 6/7/8 为例
+      //   // 750px * 缩放值 = 375px => 缩放值 = 375px/750px => 缩放值 = 1/DPR
+      //   var scale = 1 / window.devicePixelRatio
+
+      //   console.log(scale)
+
+      //   if (!meta) {
+      //     //这个条件成立说明用户没有写meta标签，我需要创建一个
+      //     meta = document.createElement('meta')
+      //     meta.name = 'viewport'
+      //     meta.content = 'width=device-width,initial-scale=' + scale + ',user-scalable=no,minimum-scale=' + scale + ',maximum-scale=' + scale + ''
+      //     document.head.appendChild(meta)
+      //   } else {
+      //     meta.setAttribute(
+      //       'content',
+      //       'width=device-width,initial-scale=' + scale + ',user-scalable=no,minimum-scale=' + scale + ',maximum-scale=' + scale + ''
+      //     )
+      //   }
+      // })()
+    </script>
+    <div class="container"></div>
+    <div class="list">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </body>
+  ·
+</html>
