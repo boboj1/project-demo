@@ -17,30 +17,29 @@ export default function Upload({
 	const inputRef = useRef<HTMLInputElement | null>(null)
 	const [fileList, setFileList] = useImmer<File[]>([])
 
-	const handleFileChange = useCallback(
-		(e: React.ChangeEvent<HTMLInputElement>) => {
-			const files = e.target.files
-			if (files) {
-				const newFiles = Array.from(files)
-				newFiles.forEach(newFile => {
-					if (!fileList.find(file => file.name === newFile.name)) {
-						setFileList(state => {
-							state.push(newFile)
-						})
-					}
-				})
+	const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const files = e.target.files
+		if (files) {
+			const newFiles = Array.from(files)
+			newFiles.forEach(newFile => {
+				if (!fileList.find(file => file.name === newFile.name)) {
+					setFileList(state => {
+						state.push(newFile)
+					})
+				}
+			})
 
-				console.log(files)
-			}
-		},
-		[]
-	)
+			console.log(files)
+		}
+	}
 
 	const handleClick = () => {
 		inputRef.current?.click()
 	}
 
-	const uploadRequest = () => {}
+	const uploadRequest = files => {
+		const xhr = new XMLHttpRequest()
+	}
 
 	return (
 		<div className={style['upload']}>
@@ -60,6 +59,8 @@ export default function Upload({
 					<div key={file.name} className="file-item">
 						<span className="file-name">{file.name}</span>
 						<DeleteOutlined className="delete-icon" />
+
+						<div className="progress"></div>
 					</div>
 				))}
 			</div>
