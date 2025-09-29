@@ -1,23 +1,18 @@
 <script lang="ts" setup>
-const obj: any = {
-  data: 'home',
-}
+import { ref } from 'vue'
 
-const p = new Proxy(obj, {
-  get(target, key) {
-    console.log('get', key)
-    return target[key]
-  },
-  set(target, key, value) {
-    console.log('set', key, value)
-    target[key] = value
-    return true
-  },
-})
+const num = ref(0)
+
+const changeNum = () => {
+  num.value++
+}
 </script>
 
 <template>
-  <div class="home_page"></div>
+  <div class="home_page">
+    <div>当前数字: {{ num }}</div>
+    <button @click="changeNum">增加</button>
+  </div>
 </template>
 
 <style lang="scss">

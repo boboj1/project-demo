@@ -1,4 +1,10 @@
-import React, { useState, useCallback, useEffect, useRef, useContext } from 'react'
+import React, {
+	useState,
+	useCallback,
+	useEffect,
+	useRef,
+	useContext,
+} from 'react'
 import { ThemeContext } from '@/context'
 import style from './index.module.scss'
 import AnimateScroll from './components/animate-scroll'
