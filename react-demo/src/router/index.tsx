@@ -25,8 +25,8 @@ const router = createBrowserRouter([
 				Component: lazy(() => import('@/views/canvas/base')),
 			},
 			{
-				path: 'about',
-				Component: lazy(() => import('@/views/about')),
+				path: 'ai-chat',
+				Component: lazy(() => import('@/views/ai-chat')),
 			},
 		],
 	},

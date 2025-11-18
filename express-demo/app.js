@@ -6,6 +6,7 @@ var logger = require('morgan')
 const cors = require('cors')
 
 const uploadRouter = require('./routes/upload')
+const aiRouter = require('./routes/ai')
 
 var app = express()
 
@@ -17,6 +18,7 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/upload', uploadRouter)
+app.use('/ai', aiRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -9,12 +9,10 @@ import { useGSAP } from '@gsap/react'
 
 gsap.registerPlugin(useGSAP)
 
-worker.start().finally(() => {
-	ReactDOM.createRoot(document.getElementById('root')!).render(
-		<Provider store={store}>
-			<ThemeContext.Provider value={'light'}>
-				<App />
-			</ThemeContext.Provider>
-		</Provider>
-	)
-})
+ReactDOM.createRoot(document.getElementById('root')!).render(
+	<Provider store={store}>
+		<ThemeContext.Provider value={'light'}>
+			<App />
+		</ThemeContext.Provider>
+	</Provider>
+)

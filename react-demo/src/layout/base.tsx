@@ -46,8 +46,8 @@ const BaseLayout: React.FC = () => {
 			],
 		},
 		{
-			key: '/about',
-			label: '关于',
+			key: '/ai-chat',
+			label: 'AI 聊天',
 		},
 	])
 
@@ -143,6 +143,7 @@ const BaseLayout: React.FC = () => {
 							minHeight: 280,
 							background: colorBgContainer,
 							borderRadius: borderRadiusLG,
+							height: 'calc(100vh - 64px)',
 						}}
 					>
 						<Outlet />
