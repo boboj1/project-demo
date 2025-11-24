@@ -13,16 +13,16 @@ router.post('/chat', async (req, res) => {
       messages,
       stream: true,
     })
+
+    res.setHeader('Content-Type', 'text/event-stream')
+    res.setHeader('Cache-Control', 'no-cache')
+
     for await (const part of result) {
-      console.log(part)
+      res.write(part.message.content)
     }
-    const responseData = {
-      ...result.message,
-      id: Date.now().toString(),
-    }
-    res.json(success(responseData))
-  } catch (error) {
-    res.status(500).json({ error: 'Internal server error' })
+    res.end()
+  } catch (err) {
+    res.status(500).json(error(err.message))
   }
 })
 
